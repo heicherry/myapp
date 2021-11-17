@@ -1,32 +1,30 @@
 import { Component } from 'react'
 import { View, Text } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { AtButton, AtTabBar } from 'taro-ui'
 
 import "taro-ui/dist/style/components/button.scss" // 按需引入
-import './index.less'
+import './index.scss'
 
 export default class Index extends Component {
 
-  componentWillMount () { }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
+  config = {
+    navigationBarTitleText: '首页'
+  }
 
   render () {
     return (
-      <View className='index'>
-        <Text>Hello world!</Text>
-        <AtButton type='primary'>I need Taro UI</AtButton>
-        <Text>Taro UI 支持 Vue 了吗？</Text>
-        <AtButton type='primary' circle={true}>支持</AtButton>
-        <Text>共建？</Text>
-        <AtButton type='secondary' circle={true}>来</AtButton>
-      </View>
-    )
+      <View>
+        <Text>你好</Text>
+        <AtButton type='secondary'>按钮文案</AtButton>
+
+        <AtTabBar
+          fixed
+          tabList={[
+            { title: '待办事项', iconType: 'bullet-list', text: 'new' },
+            { title: '拍照', iconType: 'camera' },
+            { title: '文件夹', iconType: 'folder', text: '100', max: 99 }
+          ]}
+        />
+      </View>)
   }
 }
